@@ -393,7 +393,7 @@ if __name__ == '__main__':
     # read image and conver to tensor
     ori_depth = np.array(Image.open(args.depth_path)).astype(np.float32)
     ori_rgb = np.array(Image.open(args.rgb_path)) / 255.0
-    ori_depth = np.clip(ori_depth, 0, 1000)
+    ori_depth = np.clip(ori_depth, 0, 2000)
     ori_rgb = torch.from_numpy(ori_rgb).permute(2, 1, 0)[None]
     ori_rgb = ori_rgb.to(device='cuda', dtype=torch.float32)
     ori_depth = torch.from_numpy(ori_depth).T[None]
